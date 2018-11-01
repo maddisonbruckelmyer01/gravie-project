@@ -1,0 +1,26 @@
+{
+  "name": "giphy-api-activity",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^1.1.5",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  },
+  "scripts": {
+    "start": "react-scripts build && node server/server.js",
+    "client": "react-scripts start",
+    "server": "nodemon  --watch server server/server.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
