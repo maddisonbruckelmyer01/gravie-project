@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 class App extends Component {
   // Renders the entire app on the DOM
   componentDidMount = () =>{
-    this.getGiphy();
+    this.getGiphy(); 
   }
 
   getGiphy = () => {
@@ -27,7 +27,7 @@ class App extends Component {
           <h1>Random Giphy API</h1>
         </header>
         <p>Results go here</p>
-        <img src={this.props.storeInstance.random} />
+        <img src={this.props.storeInstance.random} alt="gif"/>
         <button onClick={this.componentDidMount}>New Image</button>
    
       </div>
