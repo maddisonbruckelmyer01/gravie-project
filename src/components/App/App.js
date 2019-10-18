@@ -1,43 +1,31 @@
 import React, { Component } from 'react';
+import {HashRouter as Router, Route} from 'react-router-dom';
+import Search from '../Search/Search';
 import './App.css';
-import axios from 'axios';
-import {connect} from 'react-redux';
+import Rent from '../Rent/Rent';
 
 class App extends Component {
-  // Renders the entire app on the DOM
-  componentDidMount = () =>{
-    this.getGiphy(); 
-  }
-
-  getGiphy = () => {
-    axios.get('/random').then(response => {
-      console.log(response)
-      this.props.dispatch({
-        type: 'SET_RANDOM',
-        payload: response.data
-      })
-    }).catch(error => {
-      console.log(error)
-    })
-  }
   render() {
     return (
       <div>
-        <header className="App-header">
-          <h1>Random Giphy API</h1>
-        </header>
-        <p>Results go here</p>
-        <img src={this.props.storeInstance.random} alt="gif"/>
-        <button onClick={this.componentDidMount}>New Image</button>
-   
+        <Router>
+          <div>
+          <Route 
+            exact
+            path="/"
+            component={Search}
+        />
+
+        <Route
+          exact
+          path="/rent"
+          component={Rent}
+        />
+          </div>
+        </Router>
       </div>
     );
   }
 }
-const mapStateToProps = (storeInstance) => {
-  return {
-    storeInstance
-  }
-}
 
-export default connect(mapStateToProps)(App);
+export default App;
